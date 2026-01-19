@@ -245,7 +245,7 @@ export function BugTable({ onStart, onSmashedCountChange }: Readonly<BugTablePro
   }, [bugs, onSmashedCountChange])
 
   return (
-    <div className="fixed inset-0 h-screen w-screen overflow-hidden bg-neutral-100">
+    <div className="fixed inset-0 h-[100dvh] w-[100dvw] overflow-hidden bg-neutral-100">
       <div
         ref={tableSurfaceRef}
         className="absolute inset-0 h-full w-full cursor-none overflow-hidden bg-white"

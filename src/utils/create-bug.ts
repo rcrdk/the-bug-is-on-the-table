@@ -10,7 +10,7 @@ const INITIAL_BUG_ROTATION_MAX = 25
 
 const BUG_EMOJIS = ['🪳', '🦟', '🕷️', '🐜', '🐛', '🐞', '🐝', '🦗', '🍑', '🪰', '🦋']
 
-export function createBug(id: number): BugState {
+export const createBug = (id: number): BugState => {
   const emoji = BUG_EMOJIS[Math.floor(Math.random() * BUG_EMOJIS.length)]
 
   const side = Math.floor(Math.random() * 5)
