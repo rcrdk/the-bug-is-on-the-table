@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Geist", sans-serif;
+
+  --color-background: #ffffff;
+  --color-foreground: #171717;
+
+  --shadow-modal: 0 20px 60px rgba(0, 0, 0, 0.3);
+
+  --animation-bug-hop: bugHop 0.6s ease;
+  --animation-bug-rotate: bugRotate 3s ease-in-out infinite;
+  --animation-bug-slap: bugSlap 0.3s ease-in-out 2;
+}
+
+@layer base {
+  * {
+    @apply m-0 p-0 box-border;
+  }
+
+  html,
+  body {
+    @apply w-full h-full overflow-hidden m-0 p-0 bg-background text-foreground;
+  }
+}
+
+@layer keyframes {
+  @keyframes bugHop {
+    0% {
+      transform: translate(-50%, -50%) translateY(0);
+    }
+    50% {
+      transform: translate(-50%, -50%) translateY(-10px);
+    }
+    100% {
+      transform: translate(-50%, -50%) translateY(0);
+    }
+  }
+
+  @keyframes bugRotate {
+    0% {
+      transform: translate(-50%, -50%) rotate(-5deg);
+    }
+    50% {
+      transform: translate(-50%, -50%) rotate(5deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(-5deg);
+    }
+  }
+
+  @keyframes bugSlap {
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    25% {
+      transform: translate(-50%, -50%) rotate(-20deg);
+    }
+    50% {
+      transform: translate(-50%, -50%) rotate(15deg);
+    }
+    75% {
+      transform: translate(-50%, -50%) rotate(-10deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+  }
+}
