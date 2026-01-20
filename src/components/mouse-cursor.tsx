@@ -4,7 +4,7 @@ interface MouseCursorProps {
   isHoveringBug: boolean
 }
 
-export function MouseCursor({ x, y, isHoveringBug }: Readonly<MouseCursorProps>) {
+export function MouseCursor({ x, y, isHoveringBug }: MouseCursorProps) {
   return (
     <div
       className="pointer-events-none absolute z-1000 -translate-x-1/2 -translate-y-1/2 text-[96px] leading-none transition-transform duration-100"

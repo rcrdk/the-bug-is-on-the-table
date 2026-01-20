@@ -6,11 +6,12 @@
   --color-background: #ffffff;
   --color-foreground: #171717;
 
-  --shadow-modal: 0 20px 60px rgba(0, 0, 0, 0.3);
+  --shadow-modal: 0 20px 60px rgba(0, 0, 0, 0.4), 0 8px 20px rgba(0, 0, 0, 0.2);
 
   --animation-bug-hop: bugHop 0.6s ease;
   --animation-bug-rotate: bugRotate 3s ease-in-out infinite;
   --animation-bug-slap: bugSlap 0.3s ease-in-out 2;
+  --animation-bug-float: bugFloat 20s ease-in-out infinite;
 }
 
 @layer base {
@@ -64,6 +65,19 @@
     }
     100% {
       transform: translate(-50%, -50%) rotate(0deg);
+    }
+  }
+
+  @keyframes bugFlySimple {
+    0% {
+      left: var(--start-x, 0%);
+      top: var(--start-y, 0%);
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+      left: var(--end-x, 100%);
+      top: var(--end-y, 100%);
+      transform: translate(-50%, -50%) rotate(360deg);
     }
   }
 }

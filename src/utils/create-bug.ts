@@ -1,50 +1,52 @@
+import { BUG_EMOJIS, INITIAL_POSITION } from '@/constants/create-bug'
 import type { BugState } from '../types/bug-state'
 import { randomInRange } from './random-in-range'
 
-const INITIAL_INNER_X_MIN = 10
-const INITIAL_INNER_X_MAX = 90
-const INITIAL_INNER_Y_MIN = 10
-const INITIAL_INNER_Y_MAX = 90
-const INITIAL_BUG_ROTATION_MIN = -25
-const INITIAL_BUG_ROTATION_MAX = 25
+const getPositionForSide = (side: number): { x: number; y: number } => {
+  if (side === 0) {
+    return {
+      x: randomInRange(INITIAL_POSITION.INNER_X_MIN, INITIAL_POSITION.INNER_X_MAX),
+      y: INITIAL_POSITION.OFFSET,
+    }
+  }
 
-const BUG_EMOJIS = ['🪳', '🦟', '🕷️', '🐜', '🐛', '🐞', '🐝', '🦗', '🍑', '🪰', '🦋']
+  if (side === 1) {
+    return {
+      x: INITIAL_POSITION.OFFSET,
+      y: randomInRange(INITIAL_POSITION.INNER_Y_MIN, INITIAL_POSITION.INNER_Y_MAX),
+    }
+  }
+
+  if (side === 2) {
+    return {
+      x: INITIAL_POSITION.OFFSET_RIGHT,
+      y: randomInRange(INITIAL_POSITION.INNER_Y_MIN, INITIAL_POSITION.INNER_Y_MAX),
+    }
+  }
+
+  if (side === 3) {
+    return {
+      x: INITIAL_POSITION.OFFSET,
+      y: INITIAL_POSITION.OFFSET,
+    }
+  }
+
+  return {
+    x: INITIAL_POSITION.OFFSET_RIGHT,
+    y: INITIAL_POSITION.OFFSET,
+  }
+}
 
 export const createBug = (id: number): BugState => {
   const emoji = BUG_EMOJIS[Math.floor(Math.random() * BUG_EMOJIS.length)]
-
   const side = Math.floor(Math.random() * 5)
-  let x: number
-  let y: number
-
-  switch (side) {
-    case 0:
-      x = randomInRange(INITIAL_INNER_X_MIN, INITIAL_INNER_X_MAX)
-      y = -5
-      break
-    case 1:
-      x = -5
-      y = randomInRange(INITIAL_INNER_Y_MIN, INITIAL_INNER_Y_MAX)
-      break
-    case 2:
-      x = 105
-      y = randomInRange(INITIAL_INNER_Y_MIN, INITIAL_INNER_Y_MAX)
-      break
-    case 3:
-      x = -5
-      y = -5
-      break
-    default:
-      x = 105
-      y = -5
-      break
-  }
+  const { x, y } = getPositionForSide(side)
 
   return {
     id,
     x,
     y,
-    rotation: randomInRange(INITIAL_BUG_ROTATION_MIN, INITIAL_BUG_ROTATION_MAX),
+    rotation: randomInRange(INITIAL_POSITION.ROTATION_MIN, INITIAL_POSITION.ROTATION_MAX),
     hopping: false,
     caught: false,
     swipedAway: false,

@@ -1,0 +1,45 @@
+export const SPAWN = {
+  INITIAL_BUG_ID: 1,
+  MAX_BUGS: 6,
+  INTERVAL_MS: 1500,
+} as const
+
+export const MOVE_BOUNDS = {
+  X_MIN: 8,
+  X_MAX: 92,
+  Y_MIN: 8,
+  Y_MAX: 92,
+  ROTATION_MIN: -25,
+  ROTATION_MAX: 25,
+} as const
+
+export const TIMING = {
+  HOP_ANIMATION_DURATION_MS: 600,
+  SLAP_DELAY_MS: 500,
+  HIT_REACTION_DURATION_MS: 500,
+  MOUSE_MOVE_COOLDOWN_MS: 450,
+} as const
+
+export const DELAY = {
+  THRESHOLD_MOVES: 3,
+  PROBABILITY: 0.6,
+  BASE_MS: 350,
+  RANDOM_MIN_MS: 200,
+  RANDOM_MAX_MS: 400,
+} as const
+
+export const AUTO_MOVE_DESKTOP = {
+  INTERVAL_MIN_MS: 500,
+  INTERVAL_MAX_MS: 1200,
+  PAUSE_MIN_MS: 200,
+  PAUSE_MAX_MS: 600,
+} as const
+
+export const AUTO_MOVE_TOUCH = {
+  INTERVAL_MIN_MS: 300,
+  INTERVAL_MAX_MS: 800,
+  PAUSE_MIN_MS: 120,
+  PAUSE_MAX_MS: 400,
+} as const
+
+export const BOTTOM_Y_PERCENT = 97

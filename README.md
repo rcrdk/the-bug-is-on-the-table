@@ -69,19 +69,6 @@ The game features a diverse cast of characters:
 - **Responsive** - Works on desktop and mobile (bugs don't discriminate)
 - **Accessible** - Well, as accessible as a bug-smashing game can be
 
-## 📝 Development
-
-```bash
-# Lint
-yarn lint
-
-# Format
-yarn format
-
-# Type check
-yarn typecheck
-```
-
 ## 📄 License
 
 MIT - Do whatever you want with it. Just don't use it to train an AI to hate bugs. They're trying their best.

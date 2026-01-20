@@ -1,0 +1,1 @@
+export const DECORATIVE_BUG_COUNT = 150

@@ -9,7 +9,7 @@ interface BugProps {
   onBugLeave: () => void
 }
 
-export function Bug({ bug, isTouchDevice, isRecentlyHit, onBugEnter, onBugLeave }: Readonly<BugProps>) {
+export function Bug({ bug, isTouchDevice, isRecentlyHit, onBugEnter, onBugLeave }: BugProps) {
   const isInactive = bug.swipedAway
   const eventHandlers = isTouchDevice
     ? {
